@@ -18,7 +18,7 @@ export default function Layout({
             }
       }
       const classes = clx(
-            "flex lg:min-h-fit max-h-[105vh] relative overflow-hidden"
+            "flex lg:min-h-fit max-h-screen relative overflow-hidden"
       )
       console.log(isModalOpen)
       if (pageTitle === 'Overview') {
@@ -37,11 +37,11 @@ export default function Layout({
                               </div>
                         </div>
                         {/* Desktop */}
-                        <div className={`hidden lg:block max-h-[105vh] overflow-auto scrollbar-thumb-secondary-100 hover:scrollbar-thumb-secondary-200 scrollbar-thin flex-1 ${pageTitle!=='Message' && 'px-6'} bg-[#FAFAFA] dark:bg-secondary-300/30`}>
+                        <div className={`hidden lg:block max-h-screen overflow-auto scrollbar-thumb-secondary-100 hover:scrollbar-thumb-secondary-200 scrollbar-thin flex-1 ${pageTitle!=='Message' && 'px-6'} bg-[#FAFAFA] dark:bg-secondary-300/30`}>
                               <SecondaryHeader transparent onClickMenu={()=>setIsModalOpen(!isModalOpen)}/>
                               <main className='min-h-screen'>{children}</main>
                         </div>
-                        <div className='hidden min-h-screen lg:flex w-fit bg-[#F5F5F7]  dark:bg-secondary-300/20 justify-center px-4 py-6'>
+                        <div className='hidden min-h-screen overflow-auto scrollbar-thumb-secondary-100 hover:scrollbar-thumb-secondary-200 scrollbar-thin lg:flex w-fit bg-[#F5F5F7]  dark:bg-secondary-300/20 justify-center px-4 py-6'>
                               <TaskDetailsCard classname='' />
                         </div>
                         <MobileNav isOpen={isModalOpen} onClose={handleClose} />
@@ -55,13 +55,15 @@ export default function Layout({
                   <div className='lg:hidden max-h-screen overflow-scroll w-full bg-[#FAFAFA] '>
                         <div className='dark:bg-secondary-500/80 h-fit w-full'>
                         <PrimaryHeader title={pageTitle} padded noSearchBar={!searchFilter} onClickMenu={()=>setIsModalOpen(!isModalOpen)}/>
-                        <main className='max-w-full min-h-screen'>{children}</main>
+                        <main className='max-w-full min-h-fit lg:min-h-screen'>{children}</main>
                         </div>
                   </div>
                   {/* Desktop */}
-                  <div className='hidden lg:block max-h-[105vh] overflow-auto scrollbar-thumb-secondary-100 hover:scrollbar-thumb-secondary-200 scrollbar-thin flex-1 bg-[#FAFAFA] dark:bg-secondary-300/30'>
-                        <PrimaryHeader title={pageTitle} padded noSearchBar={!searchFilter} onClickMenu={()=>setIsModalOpen(!isModalOpen)}/>
-                        <main className={`max-h-full ${pageTitle!=='Message' && 'p-6'}`}>{children}</main>
+                  <div className='hidden lg:block lg:max-h-[100vh] overflow-hidden flex-1 bg-[#FAFAFA] dark:bg-secondary-300/30'>
+                        <PrimaryHeader title={pageTitle} padded noSearchBar={!searchFilter} onClickMenu={() => setIsModalOpen(!isModalOpen)} />
+                        <div className={`${pageTitle!=='Message'? 'overflow-auto max-h-[90vh] scrollbar-thin':'overflow-hidden max-h-[100vh]'} scrollbar-thumb-secondary-100 hover:scrollbar-thumb-secondary-200`}>
+                              <main className={`mb-16 ${pageTitle !== 'Message' && 'p-6'}`}>{children}</main>
+                        </div>
                   </div>
                   <MobileNav isOpen={isModalOpen} onClose={handleClose} />
             </div>

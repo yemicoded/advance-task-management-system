@@ -6,6 +6,7 @@ export default function Search({
       label,
       placeholder,
       name,
+      noIcon,
       classname,
       children
 }) {
@@ -15,8 +16,8 @@ export default function Search({
       )
       return (
             <div className={classes}>
-                  <input type="text" placeholder='Search Task' className='focus:outline-0 flex-1 bg-transparent text-secondary-500 dark:text-white' />
-                  <BiSearch className='ml-2 cursor-pointer'/>
+                  <input type="text" placeholder={placeholder} className='focus:outline-0 flex-1 bg-transparent text-secondary-500 dark:text-white' />
+                  {!noIcon && <BiSearch className='ml-2 cursor-pointer'/>}
             </div>
       )
 }

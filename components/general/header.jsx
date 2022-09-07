@@ -46,7 +46,7 @@ export default function PrimaryHeader({
                   <div className={`${padded && 'px-4 lg:px-6'} flex flex-col space-y-6 lg:space-y-0`}>
                         <p className='lg:hidden font-semibold text-2xl'>{ title}</p>
                         {!noSearchBar && <div className={`flex justify-between w-full space-x-2 lg:space-x-4 `}>
-                              <Search classname=''/>
+                              <Search classname='' placeholder='Search Task'/>
                               <div className={`hidden lg:flex space-x-6 `}>
                                     <Button size='medium' variant='outlined' category='secondary' iconLeft={<BiCategory size={25} />}>Category</Button>
                                     <Button size='medium' variant='outlined' category='secondary' iconLeft={<CgSortAz size={25}/>}>Sort By: Deadline</Button>

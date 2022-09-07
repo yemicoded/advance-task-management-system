@@ -12,6 +12,6 @@ export default function MentorsPage() {
 MentorsPage.Info = {
   user: "student",
   title: "Explore Mentors",
-  searchFilter: true,
+  searchFilter: false,
   description: "Task Management Mentors Page"
 }

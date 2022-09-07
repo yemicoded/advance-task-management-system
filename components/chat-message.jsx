@@ -10,8 +10,8 @@ export default function ChatMessage({
       children
 }) {
       const classes = clx(
-            "bg-primary-500 p-3 rounded-xl max-w-[350px] lg:max-w-[400px] text-white my-3",
-            src && 'max-w-[300px]',
+            "bg-primary-500 p-3 rounded-xl max-w-[350px] lg:max-w-[400px] text-white mt-3",
+            src && 'max-w-[300px] w-[300px]',
             received && "shadow-sm bg-white text-secondary-400",
             classname
       )
@@ -21,10 +21,10 @@ export default function ChatMessage({
                         <div className={classes}>
                               <div className={`h-fit ${src && 'max-w-[300px]'} overflow-hidden`}>
                                     {src && <Image src={src} width={300} height={150} alt="chat image" layout='responsive' objectFit='cover' />}
-                                    <p className={`font-medium ${src && 'mt-4'}`}>{children}</p>
+                                    <p className={`font-medium ${src && 'mt-3'}`}>{children}</p>
                               </div>
                         </div>
-                        <span className={`w-full inline-block ${received? 'text-start':'text-end'}`}>{date}</span>
+                        {date && <span className={`w-full inline-block ${received? 'text-start':'text-end'}`}>{date}</span>}
                   </div>
             </div>
       )
