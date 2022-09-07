@@ -1,4 +1,5 @@
 import React from 'react'
+import {useTheme} from 'next-themes'
 import { useRouter } from 'next/router'
 import ReactDOM from 'react-dom'
 import { createPortal } from 'react-dom'
@@ -7,6 +8,7 @@ import { FaBookOpen } from 'react-icons/fa'
 import { IconButton } from '../button'
 import { pageNavs } from '../../constants/page-nav'
 import LinkButton from '../link-button'
+import Switch from '../switch'
 
 export default function MobileNav({
       isOpen = false,
@@ -22,6 +24,13 @@ export default function MobileNav({
             setActiveLink(index + 1)
             onClose()
       }
+
+      const { systemTheme, theme, setTheme } = useTheme()
+      const currentTheme=theme==='system'? systemTheme:theme
+      const themeChanger=()=>{
+            currentTheme==='dark'? setTheme('light'):setTheme('dark')
+      }
+
       const classes = clx(
             "fixed w-full h-screen z-40 bg-black/20 lg:hidden",
             classname
@@ -36,6 +45,9 @@ export default function MobileNav({
                               </div>
                               <div className='flex flex-col space-y-6 py-6'>
                                     {pageNavs.map((pageNav, index)=><LinkButton key={pageNav.title} href={pageNav.route} label={pageNav.title} icon={pageNav.icon} active={pageNav.route===pathname} onclick={()=>handleActiveLink(index)} fullWidth />)}
+                              </div>
+                              <div className='my-8'>
+                                    <Switch active={currentTheme==='dark'} toggleActive={themeChanger} label={currentTheme==='dark'? 'Dark Mode': 'Light Mode'} />
                               </div>
                         </div>
                   </div>

@@ -13,7 +13,7 @@ export default function Layout({
 }) {
       const [isModalOpen, setIsModalOpen] = React.useState(false)
       const handleClose = (e) => {
-            if (e.target) {
+            if (e.target===e.currentTarget) {
                   setIsModalOpen(!isModalOpen)
             }
       }
