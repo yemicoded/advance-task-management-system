@@ -21,7 +21,7 @@ export default function ChatCard({
                   <div className='flex space-x-8'>
                         <div className='flex flex-col space-y-1'>
                               <p className='font-semibold text-lg'>Angelie Crison</p>
-                              <p className='text-sm'>Thank you very much. I'm glad</p>
+                              <p className='text-sm'>Thank you very much. I&apos;m glad</p>
                         </div>
                         <div className='flex flex-col space-y-1 justify-between items-end'>
                               <p>1mAgo</p>
