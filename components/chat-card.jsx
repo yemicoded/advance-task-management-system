@@ -11,8 +11,8 @@ export default function ChatCard({
       children
 }) {
       const classes = clx(
-            "flex space-x-3 items-center rounded-xl py-2 px-6 hover:bg-secondary-100 w-full lg:w-fit",
-            active && 'bg-[#FAFAFA] dark:text-secondary-500',
+            "flex items-center space-x-3 cursor-pointer dark:hover:text-secondary-300 rounded-xl py-2 px-6 hover:bg-secondary-100 w-full lg:w-fit",
+            active && 'bg-secondary-100 dark:bg-[#FAFAFA] dark:text-secondary-500',
             classname
       )
       return (
@@ -20,7 +20,7 @@ export default function ChatCard({
                   <div className='w-[60px] h-[60px]'>
                         <Image src='/dp.png' width={100} height={100} alt="" layout='responsive' />
                   </div>
-                  <div className='flex-1 flex space-x-8'>
+                  <div className='lg:flex-1 flex space-x-2 lg:space-x-8'>
                         <div className='flex flex-col space-y-1'>
                               <p className='font-semibold text-lg truncate max-w-[150px] lg:max-w-[120px]'>Angelie Crison</p>
                               <p className='text-sm truncate max-w-[150px] lg:max-w-[100px]'>Thank you very much. I&apos;m glad</p>
