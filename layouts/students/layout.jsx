@@ -37,7 +37,7 @@ export default function Layout({
                               </div>
                         </div>
                         {/* Desktop */}
-                        <div className='hidden lg:block max-h-[105vh] overflow-auto scrollbar-thumb-secondary-100 hover:scrollbar-thumb-secondary-200 scrollbar-thin flex-1 px-6 bg-[#FAFAFA] dark:bg-secondary-300/30'>
+                        <div className={`hidden lg:block max-h-[105vh] overflow-auto scrollbar-thumb-secondary-100 hover:scrollbar-thumb-secondary-200 scrollbar-thin flex-1 ${pageTitle!=='Message' && 'px-6'} bg-[#FAFAFA] dark:bg-secondary-300/30`}>
                               <SecondaryHeader transparent onClickMenu={()=>setIsModalOpen(!isModalOpen)}/>
                               <main className='min-h-screen'>{children}</main>
                         </div>
@@ -55,13 +55,13 @@ export default function Layout({
                   <div className='lg:hidden max-h-screen overflow-scroll w-full bg-[#FAFAFA] '>
                         <div className='dark:bg-secondary-500/80 h-fit w-full'>
                         <PrimaryHeader title={pageTitle} padded noSearchBar={!searchFilter} onClickMenu={()=>setIsModalOpen(!isModalOpen)}/>
-                        <main className='max-w-full'>{children}</main>
+                        <main className='max-w-full min-h-screen'>{children}</main>
                         </div>
                   </div>
                   {/* Desktop */}
                   <div className='hidden lg:block max-h-[105vh] overflow-auto scrollbar-thumb-secondary-100 hover:scrollbar-thumb-secondary-200 scrollbar-thin flex-1 bg-[#FAFAFA] dark:bg-secondary-300/30'>
                         <PrimaryHeader title={pageTitle} padded noSearchBar={!searchFilter} onClickMenu={()=>setIsModalOpen(!isModalOpen)}/>
-                        <main className='max-h-full p-6 '>{children}</main>
+                        <main className={`max-h-full ${pageTitle!=='Message' && 'p-6'}`}>{children}</main>
                   </div>
                   <MobileNav isOpen={isModalOpen} onClose={handleClose} />
             </div>
