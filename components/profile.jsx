@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
+import { GoPrimitiveDot } from 'react-icons/go'
 import { clx } from '../helpers/clx'
 
 export default function Profile({
