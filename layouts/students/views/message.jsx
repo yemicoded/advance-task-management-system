@@ -24,25 +24,25 @@ export default function Message({
                         <Search classname='lg:w-full' placeholder='Search Name'/>
                         <div className='my-6'>
                               <div className='py-4 border-b-2 border-secondary-100/20'>
-                                    <ChatCard classname='max-w-full' active/>
+                                    <ChatCard  active/>
                               </div>
                               <div className='py-4 border-b-2 border-secondary-100/20'>
-                                    <ChatCard classname='max-w-full' />
+                                    <ChatCard status='unread'  />
                               </div>
                               <div className='py-4 border-b-2 border-secondary-100/20'>
-                                    <ChatCard classname='max-w-full' />
+                                    <ChatCard status='unread'  />
                               </div>
                               <div className='py-4 border-b-2 border-secondary-100/20'>
-                                    <ChatCard classname='max-w-full' />
+                                    <ChatCard  />
                               </div>
                               <div className='py-4 border-b-2 border-secondary-100/20'>
-                                    <ChatCard classname='max-w-full' />
+                                    <ChatCard  />
                               </div>
                               <div className='py-4 border-b-2 border-secondary-100/20'>
-                                    <ChatCard classname='max-w-full' />
+                                    <ChatCard status='unread'  />
                               </div>
                               <div className='py-4 border-b-2 border-secondary-100/20'>
-                                    <ChatCard classname='max-w-full' />
+                                    <ChatCard />
                               </div>
                         </div>
                   </div>

@@ -11,7 +11,7 @@ export default function ChatCard({
       children
 }) {
       const classes = clx(
-            "flex items-center justify-between cursor-pointer dark:hover:text-secondary-300 rounded-xl py-2 px-6 hover:bg-secondary-100 w-full lg:w-fit",
+            "flex items-center justify-between cursor-pointer dark:hover:text-secondary-300 rounded-xl py-2 px-4 lg:px-6 hover:bg-secondary-100 w-full",
             active && 'bg-secondary-100 dark:bg-[#FAFAFA] dark:text-secondary-500',
             classname
       )
@@ -22,8 +22,8 @@ export default function ChatCard({
                   </div>
                   <div className='flex-1 pl-3 flex justify-between lg:space-x-8'>
                         <div className='flex flex-col space-y-1'>
-                              <p className='font-semibold text-md truncate max-w-[130px] lg:max-w-[120px]'>Angelie Crison</p>
-                              <p className='text-sm truncate max-w-[130px] lg:max-w-[100px]'>Thank you very much. I&apos;m glad</p>
+                              <p className='font-semibold text-md truncate max-w-[150px] lg:max-w-[120px]'>Angelie Crison</p>
+                              <p className='text-sm truncate max-w-[150px] lg:max-w-[100px]'>Thank you very much. I&apos;m glad</p>
                         </div>
                         <div className='flex flex-col space-y-1 justify-between items-end'>
                               <p className='text-sm text-secondary-400'>1mAgo</p>
