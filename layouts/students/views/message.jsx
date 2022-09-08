@@ -1,4 +1,5 @@
 import React from 'react'
+import { useRouter } from 'next/router'
 import { clx } from '../../../helpers/clx'
 import Search from '../../../components/search'
 import ChatMessage from '../../../components/chat-message'
@@ -13,7 +14,22 @@ export default function Message({
       classname,
       children
 }) {
-      const [isMessageOpen, setIsMessageOpen]=React.useState(false)
+      const router=useRouter()
+      const [isMessageOpen, setIsMessageOpen] = React.useState(true)
+      const [isMatch, setIsMatch] = React.useState(false)
+
+      const handleChange = () => {
+                  if (isMatch) {
+                        router.push(`${router.pathname}/1`)
+                  }
+      }
+      
+      React.useEffect(() => {
+            const media = window.matchMedia("(max-width: 700px)")
+            
+            setIsMatch(media.matches)
+      }, [router])
+      
       const classes = clx(
             "flex w-full max-h-[100vh]",
             classname
@@ -24,7 +40,7 @@ export default function Message({
                         <Search classname='lg:w-full' placeholder='Search Name'/>
                         <div className='my-6'>
                               <div className='py-4 border-b-2 border-secondary-100/20'>
-                                    <ChatCard  active/>
+                                    <ChatCard active onclick={handleChange} />
                               </div>
                               <div className='py-4 border-b-2 border-secondary-100/20'>
                                     <ChatCard status='unread'  />
@@ -46,7 +62,7 @@ export default function Message({
                               </div>
                         </div>
                   </div>
-                  {isMessageOpen && <div className='flex-1 relative flex flex-col lg:max-h-[85vh] bg-[#FAFAFA] pb-2'>
+                  {isMessageOpen && <div className='hidden flex-1 relative lg:flex flex-col lg:max-h-[85vh] bg-[#FAFAFA] pb-2'>
                         <div className='w-full max-h-[100px] bg-white border-t-2 border-l-2 border-secondary-100/20 px-6 flex justify-between items-center'>
                               <ChatProfile />
                               <div className='flex space-x-4'>
@@ -63,7 +79,7 @@ export default function Message({
                               <ChatMessage src='/chat-img.png'>check this out</ChatMessage>
                               <ChatMessage src='/chat-img.png'>check this out</ChatMessage>
                         </div>
-                        <div className='bg-white py-4 px-6 fixed xl:static bottom w-full flex justify-between'>
+                        <div className='bg-white dark:bg-secondary-500 py-4 px-6 fixed xl:static bottom w-full flex justify-between'>
                               <Search placeholder='Send your message...' noIcon classname='border-0' />
                               <div className='flex space-x-8 items-center'>
                                     <IconButton icon={<MdPermMedia size={80} />} size='large' variant='outlined' category='secondary' rounded classname='border-0' />

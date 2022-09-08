@@ -6,6 +6,7 @@ import {IoCheckmarkDoneSharp} from 'react-icons/io5'
 
 export default function ChatCard({
       status='read',
+      onclick,
       active,
       classname,
       children
@@ -16,7 +17,7 @@ export default function ChatCard({
             classname
       )
       return (
-            <div className={classes}>
+            <div className={classes} onClick={onclick}>
                   <div className='w-[60px] h-[60px]'>
                         <Image src='/dp.png' width={100} height={100} alt="" layout='responsive' />
                   </div>
@@ -38,22 +39,24 @@ export default function ChatCard({
 
 
 export function ChatProfile({
-      active=true,
+      active = true,
+      mobile,
       classname,
       children
 }) {
       const classes = clx(
             "flex space-x-3 items-center rounded-xl py-2 px-6 w-fit",
+            mobile && 'px-0',
             classname
       )
       return (
             <div className={classes}>
-                  <div className='w-[60px] h-[60px]'>
+                  <div className={`${mobile? 'w-[50px] h-[50px]':'w-[60px] h-[60px]'}`}>
                         <Image src='/dp.png' width={100} height={100} alt="" layout='responsive' />
                   </div>
                   <div className='flex space-x-8'>
-                        <div className='flex flex-col space-y-1'>
-                              <p className='font-semibold text-lg'>Angelie Crison</p>
+                        <div className={`flex flex-col ${mobile? 'space-y-0':'space-y-1'}`}>
+                              <p className={`font-semibold ${mobile? 'text-md':'text-lg'} text-secondary-500 dark:text-secondary-500`}>Angelie Crison</p>
                               {active ? <span className='inline-flex items-center gap-2 font-semibold text-secondary-400'><GoPrimitiveDot size={20} className='text-success-600' />Online</span>
                                     :
                                     <span className='inline-flex items-center gap-2 font-semibold text-secondary-400'><GoPrimitiveDot size={20} className='text-error-600' />Offline</span>

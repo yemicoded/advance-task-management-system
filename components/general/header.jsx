@@ -1,14 +1,17 @@
 import React from 'react'
+import {useRouter} from 'next/router'
 import {useTheme} from 'next-themes'
-import { BiBell, BiCategory } from 'react-icons/bi'
+import { BiArrowBack, BiBell, BiCategory } from 'react-icons/bi'
 import { clx } from '../../helpers/clx'
 import Button, { IconButton } from '../button'
 import Profile from '../profile'
 import Search from '../search'
 import {CgSortAz} from 'react-icons/cg'
 import { HiMenu } from 'react-icons/hi'
-import { VscSettings } from 'react-icons/vsc'
+import { VscCallOutgoing, VscSettings } from 'react-icons/vsc'
 import {MdDarkMode, MdLightMode} from 'react-icons/md'
+import { ChatProfile } from '../chat-card'
+import { BsCameraVideo } from 'react-icons/bs'
 
 export default function PrimaryHeader({
       classname,
@@ -72,6 +75,7 @@ export function SecondaryHeader({
             currentTheme==='dark'? setTheme('light'):setTheme('dark')
             console.log(currentTheme)
       }
+      
       const classes = clx(
             "h-fit max-w-full bg-white p-6 px-0 flex flex-col space-y-6",
             transparent && 'bg-transparent',
@@ -92,6 +96,38 @@ export function SecondaryHeader({
                               <IconButton icon={<BiBell size={30} />} variant='outlined' category='secondary' size='large' rounded />
                               <Profile src/>
                         </div>
+                  </div>
+            </div>
+      )
+}
+
+
+export function StackChatHeader({
+      classname,
+      onClickMenu,
+      padded,
+      transparent,
+      noSearchBar,
+      children
+}) {  
+      const router=useRouter()
+      const classes = clx(
+            "h-fit max-w-full bg-white p-4 flex justify-between items-center",
+            classname
+      )
+      const navigateBack = () => {
+            router.push('/message')
+      }
+
+      return (
+            <div className={classes}>
+                  <div className='flex gap-1 items-center'>
+                        <IconButton icon={<BiArrowBack size={50} />} size='large' variant='outlined' category='secondary' rounded classname='border-0' onclick={navigateBack} />
+                        <ChatProfile mobile/>
+                  </div>
+                  <div className='flex space-x-3 items-center'>
+                        <IconButton icon={<BsCameraVideo />} size='large' variant='outlined' category='secondary' rounded />
+                        <IconButton icon={<VscCallOutgoing />} size='large' variant='outlined' category='secondary' rounded/>
                   </div>
             </div>
       )

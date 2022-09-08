@@ -2,14 +2,7 @@ import reat from 'react'
 import { clx } from '../helpers/clx'
 import Settings from '../layouts/students/views/settings'
 
-export default function SettingsPage({
-      classname,
-      children
-}) {
-      const classes = clx(
-            "",
-            classname
-      )
+export default function SettingsPage() {
       return (
             <Settings />
       )
