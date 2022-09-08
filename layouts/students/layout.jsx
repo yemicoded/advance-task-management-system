@@ -55,7 +55,7 @@ export default function Layout({
                   <div className='lg:hidden max-h-screen overflow-scroll w-full bg-[#FAFAFA] '>
                         <div className='dark:bg-secondary-500/80 h-fit w-full'>
                         <PrimaryHeader title={pageTitle} padded noSearchBar={!searchFilter} onClickMenu={()=>setIsModalOpen(!isModalOpen)}/>
-                        <main className='max-w-full min-h-fit lg:min-h-screen'>{children}</main>
+                        <main className='max-w-full min-h-screen lg:min-h-screen'>{children}</main>
                         </div>
                   </div>
                   {/* Desktop */}

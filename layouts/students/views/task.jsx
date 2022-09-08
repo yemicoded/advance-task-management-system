@@ -10,7 +10,8 @@ export default function Task({
       classname,
       children
 }) {
-      const scrollRef=React.useRef()
+      const timeLimitRef=React.useRef()
+      const newTaskRef=React.useRef()
 
       const classes = clx(
             "",
@@ -19,8 +20,8 @@ export default function Task({
       return (
             <Container classname='px-4 lg:px-0'>
                   <Container classname='py-6 lg:py-0'>
-                        <CardsTopBar title='Time Limit'scrollRef={scrollRef} />
-                        <ScrollContainer scrollRef={scrollRef} classname='px-0 space-x-6'>
+                        <CardsTopBar title='Time Limit'scrollRef={timeLimitRef} />
+                        <ScrollContainer scrollRef={timeLimitRef} classname='px-0 space-x-6'>
                               <TaskCard contained/>
                               <TaskCard contained/>
                               <TaskCard contained />
@@ -29,8 +30,8 @@ export default function Task({
                         </ScrollContainer>
                   </Container>
                   <Container classname='py-6'>
-                        <CardsTopBar title='New Task'scrollRef={scrollRef} />
-                        <ScrollContainer scrollRef={scrollRef} classname='px-0 space-x-6'>
+                        <CardsTopBar title='New Task'scrollRef={newTaskRef} />
+                        <ScrollContainer scrollRef={newTaskRef} classname='px-0 space-x-6'>
                               <TaskCard contained/>
                               <TaskCard contained/>
                               <TaskCard contained />

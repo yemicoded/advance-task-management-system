@@ -1,4 +1,5 @@
 import React from 'react'
+import {useTheme} from 'next-themes' 
 import { MdPermMedia } from 'react-icons/md'
 import { TbSend } from 'react-icons/tb'
 import { IconButton } from '../../../components/button'
@@ -11,8 +12,13 @@ export default function SingleChat({
       classname,
       children
 }) {
+      const {systemTheme, theme, setTheme}=useTheme()
+      React.useEffect(() => {
+            const currentTheme = theme === 'system' ? systemTheme : theme
+            setTheme(currentTheme)
+      })
       const classes = clx(
-            "max-h-screen w-full flex flex-col",
+            "max-h-[100vh] w-full flex flex-col",
             classname
       )
       return (

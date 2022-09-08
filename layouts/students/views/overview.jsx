@@ -11,7 +11,8 @@ import CardsTopBar from '../../../components/cards-topbar'
 import TaskDetailsCard from '../../../components/view-components/task-details-card'
 
 export default function Overview() {
-      const scrollRef=React.useRef()
+      const mentorRef=React.useRef()
+      const taskRef=React.useRef()
       
       return (
             <Container>
@@ -21,16 +22,16 @@ export default function Overview() {
                   </FlexContainer>
                   <ActivityChart classname='lg:hidden' />
                   <Container classname='py-6'>
-                        <CardsTopBar title='Monthly Mentors' scrollRef={scrollRef} />
-                        <ScrollContainer scrollRef={scrollRef} classname='max-w-4xl px-0 space-x-6'>
+                        <CardsTopBar title='Monthly Mentors' scrollRef={mentorRef} />
+                        <ScrollContainer scrollRef={mentorRef} classname='max-w-4xl px-0 space-x-6'>
                               <MentorCard contained/>
                               <MentorCard contained/>
                               <MentorCard contained/>
                         </ScrollContainer>
                   </Container>
                   <Container classname='py-6'>
-                        <CardsTopBar title='Upcoming Tasks' scrollRef={scrollRef} />
-                        <ScrollContainer scrollRef={scrollRef} classname='max-w-4xl px-0 space-x-6'>
+                        <CardsTopBar title='Upcoming Tasks' scrollRef={taskRef} />
+                        <ScrollContainer scrollRef={taskRef} classname='max-w-4xl px-0 space-x-6'>
                               <TaskCard contained/>
                               <TaskCard contained/>
                               <TaskCard contained/>
