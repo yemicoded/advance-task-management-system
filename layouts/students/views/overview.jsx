@@ -32,9 +32,12 @@ export default function Overview() {
                   <Container classname='py-6'>
                         <CardsTopBar title='Upcoming Tasks' scrollRef={taskRef} />
                         <ScrollContainer scrollRef={taskRef} classname='max-w-4xl px-0 space-x-6'>
-                              <TaskCard contained/>
-                              <TaskCard contained/>
-                              <TaskCard contained/>
+                              <TaskCard progress={30} contained/>
+                              <TaskCard progress={45} contained/>
+                              <TaskCard progress={70} contained/>
+                              <TaskCard progress={20} contained/>
+                              <TaskCard progress={65} contained/>
+                              <TaskCard progress={90} contained/>
                         </ScrollContainer>
                   </Container>
                   <Container classname='lg:hidden pb-6'>

@@ -21,7 +21,7 @@ export default function TaskCard({
       return (
             <div className={classes}>
                   <div className='w-full h-[45%] rounded-lg overflow-hidden bg-primary-400'>
-                        <Image src="/task1.png" width="320px" height="140px" alt="" layout="responsive" objectFit='cover' className='w-full' />
+                        <Image src="/task-img.png" width="320px" height="140px" alt="" layout="responsive" objectFit='cover' className='w-full' />
                   </div>
                   <div className='mt-4'>
                         <p className='font-semibold'>Creating Awesome Mobile Apps</p>
@@ -33,7 +33,7 @@ export default function TaskCard({
                               <FiClock />
                               <p className='font-semibold'>1 Hour</p>
                         </div>
-                        <div>Stacked Images</div>
+                        {/* <div>Stacked Images</div> */}
                   </div>
             </div>
       )
