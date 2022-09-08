@@ -112,7 +112,7 @@ export function StackChatHeader({
 }) {  
       const router=useRouter()
       const classes = clx(
-            "h-fit max-w-full bg-white p-4 flex justify-between items-center",
+            "h-fit w-full bg-white p-4 flex justify-between items-center",
             classname
       )
       const navigateBack = () => {
