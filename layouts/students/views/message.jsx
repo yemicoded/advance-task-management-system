@@ -20,7 +20,7 @@ export default function Message({
       )
       return (
             <div className={classes}>
-                  <div className='w-full lg:max-w-[370px] max-h-[90vh] lg:max-h-[90vh] overflow-auto scrollbar-thumb-secondary-100 hover:scrollbar-thumb-secondary-200 scrollbar-thin p-6 bg-white dark:bg-secondary-500 dark:border-0 dark:border-secondary-200'>
+                  <div className='w-full lg:max-w-[370px] max-h-[90vh] lg:max-h-[90vh] overflow-auto scrollbar-thumb-secondary-100 hover:scrollbar-thumb-secondary-200 lg:scrollbar-thin p-4 lg:p-6 bg-white dark:bg-secondary-500 dark:border-0 dark:border-secondary-200'>
                         <Search classname='lg:w-full' placeholder='Search Name'/>
                         <div className='my-6'>
                               <div className='py-4 border-b-2 border-secondary-100/20'>

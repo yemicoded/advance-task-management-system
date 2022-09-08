@@ -22,11 +22,11 @@ export default function ChatCard({
                   </div>
                   <div className='flex-1 pl-3 flex justify-between lg:space-x-8'>
                         <div className='flex flex-col space-y-1'>
-                              <p className='font-semibold text-lg truncate max-w-[130px] lg:max-w-[120px]'>Angelie Crison</p>
+                              <p className='font-semibold text-md truncate max-w-[130px] lg:max-w-[120px]'>Angelie Crison</p>
                               <p className='text-sm truncate max-w-[130px] lg:max-w-[100px]'>Thank you very much. I&apos;m glad</p>
                         </div>
                         <div className='flex flex-col space-y-1 justify-between items-end'>
-                              <p>1mAgo</p>
+                              <p className='text-sm text-secondary-400'>1mAgo</p>
                               {status==='unread' && <GoPrimitiveDot size={20} className='text-error-600'/>}
                               {status==='read' && <IoCheckmarkDoneSharp size={20} className='text-primary-500'/>}
                               {/* <span className={`block h-3 w-3 rounded-full bg-error-700`} /> */}
